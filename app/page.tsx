@@ -206,7 +206,7 @@ export default function HomePage() {
       </section>
 
       {/* Committees */}
-      <section id="komiteler" className="py-20 bg-white">
+      <section id="komisyonlar" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-16 text-gray-900">Komisyonlar</h2>
 

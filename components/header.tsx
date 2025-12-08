@@ -10,7 +10,7 @@ export function Header() {
 
   const navItems = [
     { name: "Ana Sayfa", href: "/" },
-    { name: "Komiteler", href: "/#komiteler" },
+    { name: "Komisyonlar", href: "/#komisyonlar" },
     { name: "Program", href: "/#program" },
     { name: "Ekip", href: "/#ekip" },
     { name: "Kurallar", href: "/#kurallar" },

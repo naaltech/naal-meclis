@@ -30,8 +30,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/#komiteler" className="text-gray-400 hover:text-white transition-colors">
-                  Komiteler
+                <Link href="/#komisyonlar" className="text-gray-400 hover:text-white transition-colors">
+                  Komisyonlar
                 </Link>
               </li>
             </ul>
@@ -45,7 +45,7 @@ export function Footer() {
               <li>İnkılap Mah. Yelkenciler Sok. No: 1</li>
               <li>Ümraniye, İstanbul</li>
               <li>
-                <a href="mailto:meclis@naal.edu.tr" className="hover:text-white transition-colors">
+                <a href="mailto:meclis@naal.org.tr" className="hover:text-white transition-colors">
                   meclis@naal.org.tr
                 </a>
               </li>

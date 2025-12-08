@@ -12,7 +12,7 @@ const committees = {
     name: "Adalet Komisyonu",
     delegates: 20,
     about:
-      "Türkiye'nin yargı sistemini ele alan, adalet ve hukuk reformlarını tartışan prestijli komitemiz.",
+      "Türkiye'nin yargı sistemini ele alan, adalet ve hukuk reformlarını tartışan prestijli komisyon.",
     topics: [
       "Yargı bağımsızlığının güçlendirilmesi",
       "Ceza ve infaz sisteminde reform",
@@ -91,7 +91,7 @@ const committees = {
     delegates: 15,
     about:
       "Türk Dünyasında Siyaset Tarihi Komisyonu, Türk tarihinin kritik dönüm noktalarını simüle eder. Delegeler, tarihsel figürlerin rolünü üstlenerek önemli kararları yeniden tartışır ve alternatif tarih senaryolarını keşfederler.",
-    alert: "Bu komite, diğer komisyonlardan farklı olarak tarihi bir simülasyon formatında çalışır.",
+    alert: "Bu komisyon, diğer komisyonlardan farklı olarak tarihi bir simülasyon formatında çalışır.",
     topics: [
       "Kurtuluş Savaşı ve stratejik kararlar",
       "Cumhuriyet'in ilanı ve devrim süreçleri",
@@ -112,7 +112,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
 
   if (!committee) {
     return {
-      title: "Komite Bulunamadı | Meclis Simülasyonu",
+      title: "Komisyon Bulunamadı | Meclis Simülasyonu",
     }
   }
 
@@ -171,7 +171,7 @@ export default async function CommitteePage({ params }: { params: Promise<{ id: 
           {/* About Section */}
           <Card className="border-2 border-primary/30 mb-8">
             <CardContent className="pt-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Komite Hakkında</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Komisyon Hakkında</h2>
               <p className="text-gray-700 leading-relaxed">{committee.about}</p>
             </CardContent>
           </Card>
