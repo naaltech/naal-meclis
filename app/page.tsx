@@ -58,11 +58,12 @@ export default function HomePage() {
   ]
 
   const rules = [
-    "Delegeler zamanında oturumda olmalıdır.",
-    "Resmî hitap kuralları geçerlidir.",
-    "Kıyafet kurallarına uyulmalıdır.",
-    "Oturum sırasında telefon kullanılmamalıdır.",
-    "Disiplin ihlallerinde yaptırım uygulanabilir.",
+    "Tüm katılımcılara, organizatörlere ve konuşmacılara karşı saygılı ve nazik davranılmalıdır.",
+    "Oturumlara ve etkinliklere zamanında katılım sağlanmalıdır. Gecikmeler oturum akışını olumsuz etkiler.",
+    "Etkinlik süresince resmi kıyafet (takım elbise, gömlek vb.) giyilmesi zorunludur.",
+    "Oturumlar sırasında telefonlar sessiz moda alınmalı, sadece not alma amaçlı kullanılmalıdır.",
+    "Meclis prosedürlerine ve oylama kurallarına uyulmalıdır. Söz almak için belirtilen usullere uygun hareket edilmelidir.",
+    "Oturum içerikleri ve tartışmalar izinsiz paylaşılmamalıdır."
   ]
 
   const faqs = [
