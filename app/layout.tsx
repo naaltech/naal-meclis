@@ -11,7 +11,7 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Meclis Simülasyonu | Nevzat Ayaz Anadolu Lisesi",
   description:
-    "Gençlerin demokratik katılımını teşvik eden eğitici bir etkinlik. 15-16 Haziran 2025 tarihlerinde gerçekleşecek.",
+    "Gençlerin demokratik katılımını teşvik eden eğitici bir etkinlik. 24-25 Ocak 2026 tarihlerinde gerçekleşecek.",
   keywords: [
     "meclis simülasyonu",
     "NAAL",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Meclis Simülasyonu | Nevzat Ayaz Anadolu Lisesi",
     description:
-      "Gençlerin demokratik katılımını teşvik eden eğitici bir etkinlik. 15-16 Haziran 2025 tarihlerinde gerçekleşecek.",
+      "Gençlerin demokratik katılımını teşvik eden eğitici bir etkinlik. 24-25 Ocak 2026 tarihlerinde gerçekleşecek.",
     url: "https://meclis.naal.org.tr",
     siteName: "Meclis Simülasyonu | Nevzat Ayaz Anadolu Lisesi",
     locale: "tr_TR",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Meclis Simülasyonu | Nevzat Ayaz Anadolu Lisesi",
     description:
-      "Gençlerin demokratik katılımını teşvik eden eğitici bir etkinlik. 15-16 Haziran 2025.",
+      "Gençlerin demokratik katılımını teşvik eden eğitici bir etkinlik. 24-25 Ocak 2026.",
   },
   robots: {
     index: true,

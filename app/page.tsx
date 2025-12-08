@@ -107,7 +107,7 @@ export default function HomePage() {
             <span className="text-primary">Meclis Simülasyonu</span>
           </h1>
 
-          <p className="text-2xl font-bold text-gray-900 mb-12">15-16 Haziran 2025</p>
+          <p className="text-2xl font-bold text-gray-900 mb-12">24-25 Ocak 2026</p>
 
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto mb-8">
@@ -156,7 +156,7 @@ export default function HomePage() {
                     {/* Day 1 */}
                     <div>
                       <h3 className="text-xl font-bold text-primary mb-4 pb-2 border-b-2 border-primary">
-                        1. Gün - 15 Haziran 2025
+                        1. Gün - 24 Ocak 2026
                       </h3>
                       <div className="space-y-3">
                         {timeline.day1.map((event, index) => (
@@ -171,7 +171,7 @@ export default function HomePage() {
                     {/* Day 2 */}
                     <div>
                       <h3 className="text-xl font-bold text-primary mb-4 pb-2 border-b-2 border-primary">
-                        2. Gün - 16 Haziran 2025
+                        2. Gün - 25 Ocak 2026
                       </h3>
                       <div className="space-y-3">
                         {timeline.day2.map((event, index) => (
