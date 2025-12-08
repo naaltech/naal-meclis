@@ -38,7 +38,7 @@ export function Header() {
             </Link>
           ))}
           <Button variant="outline" asChild className="ml-2">
-            <Link href="#basvuru">Başvuru Yap</Link>
+            <Link href="/kayit-ol">Başvuru Yap</Link>
           </Button>
         </div>
 
