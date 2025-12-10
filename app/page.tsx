@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Users, Building, School, MapPin, ChevronRight, Scale, GraduationCap, Globe, Home, Church, Coins, History } from "lucide-react"
+import { Users, Building, School, MapPin, ChevronRight } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
@@ -7,6 +7,7 @@ import { LocationSection } from "@/components/location-section"
 import { ContactForm } from "@/components/contact-form"
 import { ConductRulesDialog } from "@/components/conduct-rules-dialog"
 import { Footer } from "@/components/footer"
+import { committeesList } from "@/lib/committees"
 
 export default function HomePage() {
   // Etkinlik planı durumu - true: Açıklandı, false: Yakında açıklanacak
@@ -35,15 +36,7 @@ export default function HomePage() {
     ],
   }
 
-  const committees = [
-    { id: "adalet", name: "Adalet Komisyonu", delegates: 24, icon: Scale },
-    { id: "milli-egitim", name: "Milli Eğitim Komisyonu", delegates: 22, icon: GraduationCap },
-    { id: "dis-isleri", name: "Dış İşleri Komisyonu", delegates: 20, icon: Globe },
-    { id: "ic-isleri", name: "İç İşleri Komisyonu", delegates: 21, icon: Home },
-    { id: "din-isleri", name: "Din İşleri Komisyonu", delegates: 19, icon: Church },
-    { id: "hazine-maliye", name: "Hazine ve Maliye Komisyonu", delegates: 22, icon: Coins },
-    { id: "turk-dunyasi", name: "Türk Dünyasında Siyaset Tarihi Komisyonu", delegates: 22, icon: History },
-  ]
+  const committees = committeesList
 
   const team = [
     { role: "Koordinatör 1", name: "Ad Soyad", photo: "" },
