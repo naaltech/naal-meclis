@@ -18,17 +18,17 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Technologies
 
-- Next.js 15
-- React 19
+- Astro
 - TypeScript
 - Tailwind CSS
 - Heroicons
 
 ## Project Structure
 
-- `/app` - Page routes
-- `/components` - React components
-- `/lib` - Utility functions and data files
+- `/src/pages` - Page routes
+- `/src/layouts` - Page layouts
+- `/src/components` - Astro components
+- `/src/lib` - Utility functions and data files
 - `/public` - Static assets
 
 ## License

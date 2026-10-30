@@ -1,0 +1,83 @@
+---
+const currentYear = new Date().getFullYear()
+---
+
+<footer class="bg-[#0a0a0a] text-white border-t border-gray-800">
+  <div class="container mx-auto px-4 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      {/* About */}
+      <div>
+        <h3 class="font-bold text-lg mb-3">Nevzat Ayaz Anadolu Lisesi<br />Meclis Simülasyonu</h3>
+        <p class="text-gray-400 text-sm">
+          Demokratik katılımı teşvik eden eğitici etkinlik
+        </p>
+      </div>
+
+      {/* Quick Links */}
+      <div>
+        <h3 class="font-bold text-lg mb-3">Hızlı Erişim</h3>
+        <ul class="space-y-2 text-sm">
+          <li>
+            <a href="/" class="text-gray-400 hover:text-white transition-colors">
+              Ana Sayfa
+            </a>
+          </li>
+          <li>
+            <a href="/#program" class="text-gray-400 hover:text-white transition-colors">
+              Program
+            </a>
+          </li>
+          <li>
+            <a href="/#komisyonlar" class="text-gray-400 hover:text-white transition-colors">
+              Komisyonlar
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      {/* Contact */}
+      <div>
+        <h3 class="font-bold text-lg mb-3">İletişim</h3>
+        <ul class="space-y-2 text-sm text-gray-400">
+          <li>Nevzat Ayaz Anadolu Lisesi</li>
+          <li>İnkılap Mah. Yelkenciler Sok. No: 1</li>
+          <li>Ümraniye, İstanbul</li>
+          <li>
+            <a href="mailto:meclis@naal.org.tr" class="hover:text-white transition-colors">
+              meclis@naal.org.tr
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    {/* Bottom Bar */}
+    <div class="border-t border-gray-800 pt-6">
+      <div class="text-center text-sm text-gray-400 space-y-2">
+        <p>
+          © {currentYear} Nevzat Ayaz Anadolu Lisesi Meclis Simülasyonu. | Bu proje{" "}
+          <a
+            href="https://raw.githubusercontent.com/naaltech/naal-meclis/refs/heads/main/LICENSE"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-white transition-colors underline"
+          >
+            GPLv3
+          </a>
+          {" "}ile lisanslanmıştır.
+        </p>
+        <p>
+          Açık Kaynak:{" "}
+          <a
+            href="https://github.com/naaltech/naal-meclis"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-white transition-colors underline"
+          >
+            GitHub
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>

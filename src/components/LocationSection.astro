@@ -1,0 +1,91 @@
+---
+import MapPinIcon from "heroicons/24/outline/map-pin.svg"
+---
+
+<section class="py-20 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center mb-16 text-gray-900">Lokasyon</h2>
+
+    <div class="max-w-4xl mx-auto">
+      <div class="border-2 border-primary/30 overflow-hidden rounded-lg bg-white">
+        <div class="h-[300px] w-full relative z-0">
+          <div id="location-map" class="h-full min-h-[400px] w-full rounded-t-lg">
+            <div data-map-placeholder class="h-full w-full bg-gray-200 flex items-center justify-center rounded-t-lg">
+              <MapPinIcon class="h-16 w-16 text-primary animate-pulse" />
+            </div>
+          </div>
+        </div>
+        <div class="p-6 relative z-10 bg-white">
+          <div class="grid md:grid-cols-2 gap-6">
+            {/* Left: Address */}
+            <div>
+              <h3 class="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
+                <MapPinIcon class="h-4 w-4 text-primary" />
+                Adres
+              </h3>
+              <div class="space-y-1">
+                <p class="text-gray-900 font-semibold text-sm">Nevzat Ayaz Anadolu Lisesi</p>
+                <p class="text-gray-700 text-sm leading-relaxed">
+                  İnkılap Mah. Yelkenciler Sok. No: 1<br />
+                  Ümraniye, İstanbul, Türkiye
+                </p>
+              </div>
+            </div>
+
+            {/* Right: Transportation */}
+            <div>
+              <h3 class="text-lg font-bold text-gray-900 mb-3">Ulaşım Seçenekleri</h3>
+              <div class="space-y-2 text-xs">
+                <div>
+                  <p class="font-semibold text-gray-900 mb-0.5">Metro:</p>
+                  <p class="text-gray-700 mb-1">M5 Hattı - Çarşı Durağı</p>
+                  <p class="text-gray-600 text-[11px]">Metrobüs hattının Altunizade durağından ve M8 metro hattının Dudullu durağından M5 metro hattına aktarma yapılabilmektedir.</p>
+                </div>
+                <div>
+                  <p class="font-semibold text-gray-900 mb-0.5">Otobüs:</p>
+                  <p class="text-gray-700">11P, 131T, 131YS, 320, 522, 14YE, 139A, 11ÜS <span class="text-gray-600">(Ümraniye Çarşı Metro Durağı)</span></p>
+                </div>
+                <div>
+                  <p class="font-semibold text-gray-900 mb-0.5">Otobüs:</p>
+                  <p class="text-gray-700">11D, 11H, 14DK, 15TY <span class="text-gray-600">(Ümraniye Telekom Durağı)</span></p>
+                </div>
+                <div>
+                  <p class="font-semibold text-gray-900 mb-0.5">Otobüs:</p>
+                  <p class="text-gray-700">10, 10G, 11K, 11ÇB, 13H, 14K, 20, 20K <span class="text-gray-600">(Ümraniye Devlet Hastanesi Durağı)</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const { default: L } = await import("leaflet")
+  await import("leaflet/dist/leaflet.css")
+
+  const position: [number, number] = [41.0300636, 29.1029677]
+
+  // Leaflet's bundled default marker paths do not survive bundling
+  const icon = L.icon({
+    iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
+    iconRetinaUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
+    shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+  })
+
+  document.querySelector("[data-map-placeholder]")!.remove()
+
+  const map = L.map("location-map", { scrollWheelZoom: false }).setView(position, 16)
+
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+  }).addTo(map)
+
+  L.marker(position, { icon })
+    .addTo(map)
+    .bindPopup("Nevzat Ayaz Anadolu Lisesi<br />İnkılap Mah. Yelkenciler Sok. No: 1")
+</script>

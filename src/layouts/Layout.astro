@@ -1,0 +1,72 @@
+---
+import "@fontsource-variable/geist"
+import "@/styles/globals.css"
+import Header from "@/components/Header.astro"
+
+const defaultTitle = "Meclis Simülasyonu | Nevzat Ayaz Anadolu Lisesi"
+const defaultDescription =
+  "Gençlerin demokratik katılımını teşvik eden eğitici bir etkinlik. 24-25 Ocak 2026 tarihlerinde gerçekleşecek."
+
+interface Props {
+  title?: string
+  description?: string
+  ogTitle?: string
+  ogUrl?: string
+  twitterTitle?: string
+  twitterDescription?: string
+}
+
+const {
+  title = defaultTitle,
+  description = defaultDescription,
+  ogTitle = title,
+  ogUrl = "https://meclis.naal.org.tr",
+  twitterTitle = title,
+  twitterDescription = "Gençlerin demokratik katılımını teşvik eden eğitici bir etkinlik. 24-25 Ocak 2026.",
+} = Astro.props
+
+const keywords = [
+  "meclis simülasyonu",
+  "NAAL",
+  "Nevzat Ayaz Anadolu Lisesi",
+  "model parliament",
+  "öğrenci meclisi",
+  "demokratik katılım",
+  "lise etkinliği",
+  "İstanbul",
+  "Ümraniye",
+]
+---
+
+<!doctype html>
+<html lang="tr" class="has-[dialog[open]]:overflow-hidden">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords.join(",")} />
+    <meta name="author" content="Nevzat Ayaz Anadolu Lisesi" />
+    <meta name="creator" content="Nevzat Ayaz Anadolu Lisesi" />
+    <meta name="publisher" content="Nevzat Ayaz Anadolu Lisesi" />
+    <meta name="format-detection" content="telephone=no, address=no, email=no" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1" />
+    <link rel="icon" href="/meclis-logo.png" />
+
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={ogUrl} />
+    <meta property="og:site_name" content="Meclis Simülasyonu | Nevzat Ayaz Anadolu Lisesi" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={twitterTitle} />
+    <meta name="twitter:description" content={twitterDescription} />
+  </head>
+  <body class="font-sans antialiased">
+    <Header />
+    <slot />
+  </body>
+</html>

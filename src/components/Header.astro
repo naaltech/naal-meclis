@@ -1,0 +1,73 @@
+---
+import Bars3Icon from "heroicons/24/outline/bars-3.svg"
+import XMarkIcon from "heroicons/24/outline/x-mark.svg"
+import Button from "@/components/ui/Button.astro"
+
+const navItems = [
+  { name: "Ana Sayfa", href: "/" },
+  { name: "Komisyonlar", href: "/#komisyonlar" },
+  { name: "Program", href: "/#program" },
+  { name: "Ekip", href: "/#ekip" },
+  { name: "Kurallar", href: "/#kurallar" },
+  { name: "SSS", href: "/#sss" },
+]
+---
+
+<header class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+  <nav class="container flex h-16 items-center justify-between px-4">
+    <div class="flex items-center gap-2">
+      <a href="/" class="flex items-center space-x-2">
+        <span class="font-bold text-lg">naalmeclis</span>
+      </a>
+    </div>
+
+    {/* Desktop Navigation */}
+    <div class="hidden md:flex md:gap-6 md:items-center">
+      {navItems.map((item) => (
+        <a href={item.href} class="text-sm font-medium transition-colors hover:text-primary">
+          {item.name}
+        </a>
+      ))}
+      <Button variant="outline" href="/kayit-ol" class="ml-2">Başvuru Yap</Button>
+    </div>
+
+    {/* Mobile Menu Button */}
+    <button
+      id="mobile-menu-toggle"
+      class="group md:hidden"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <Bars3Icon class="h-6 w-6 group-aria-expanded:hidden" />
+      <XMarkIcon class="hidden h-6 w-6 group-aria-expanded:block" />
+    </button>
+  </nav>
+
+  {/* Mobile Navigation */}
+  <div id="mobile-menu" class="md:hidden border-t" hidden>
+    <div class="container px-4 py-4 space-y-3">
+      {navItems.map((item) => (
+        <a href={item.href} class="block py-2 text-sm font-medium transition-colors hover:text-primary">
+          {item.name}
+        </a>
+      ))}
+      <Button variant="outline" href="/kayit-ol" class="w-full">Başvuru Yap</Button>
+    </div>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>("#mobile-menu-toggle")!
+  const menu = document.querySelector<HTMLElement>("#mobile-menu")!
+
+  const setOpen = (open: boolean) => {
+    menu.hidden = !open
+    toggle.setAttribute("aria-expanded", String(open))
+  }
+
+  toggle.addEventListener("click", () => setOpen(toggle.ariaExpanded !== "true"))
+  menu.addEventListener("click", (event) => {
+    if ((event.target as HTMLElement).closest("a")) setOpen(false)
+  })
+</script>

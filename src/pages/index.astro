@@ -1,0 +1,354 @@
+---
+import AcademicCapIcon from "heroicons/24/outline/academic-cap.svg"
+import BuildingOfficeIcon from "heroicons/24/outline/building-office.svg"
+import ChevronRightIcon from "heroicons/24/outline/chevron-right.svg"
+import UsersIcon from "heroicons/24/outline/users.svg"
+import ConductRulesDialog from "@/components/ConductRulesDialog.astro"
+import ContactForm from "@/components/ContactForm.astro"
+import Footer from "@/components/Footer.astro"
+import LocationSection from "@/components/LocationSection.astro"
+import AccordionItem from "@/components/ui/AccordionItem.astro"
+import Button from "@/components/ui/Button.astro"
+import Card from "@/components/ui/Card.astro"
+import CardContent from "@/components/ui/CardContent.astro"
+import Layout from "@/layouts/Layout.astro"
+import { committeesList } from "@/lib/committees"
+
+// Etkinlik planı durumu - true: Açıklandı, false: Yakında açıklanacak
+const isTimelineAnnounced = false
+
+const stats = [
+  { label: "Toplam Katılımcı", value: "150", icon: UsersIcon },
+  { label: "Komisyon Sayısı", value: "7", icon: BuildingOfficeIcon },
+  { label: "Katılan Okul", value: "12", icon: AcademicCapIcon },
+]
+
+const timeline = {
+  day1: [
+    { title: "Açılış Konuşması", time: "09:00 - 09:30" },
+    { title: "Komite Oturumları I", time: "09:45 - 12:30" },
+    { title: "Öğle Yemeği", time: "12:30 - 13:30" },
+    { title: "Komite Oturumları II", time: "13:45 - 15:30" },
+    { title: "Sosyal Etkinlik", time: "15:45 - 17:00" },
+  ],
+  day2: [
+    { title: "Komite Oturumları III", time: "09:00 - 11:00" },
+    { title: "Genel Kurul Hazırlık", time: "11:15 - 12:00" },
+    { title: "Öğle Yemeği", time: "12:00 - 13:00" },
+    { title: "Genel Kurul", time: "13:00 - 15:30" },
+    { title: "Kapanış Töreni", time: "15:45 - 16:30" },
+  ],
+}
+
+const team = [
+  { role: "Koordinatör 1", name: "Ad Soyad", photo: "" },
+  { role: "Koordinatör 2", name: "Ad Soyad", photo: "" },
+  { role: "Koordinatör 3", name: "Ad Soyad", photo: "" },
+]
+
+const sponsors = [
+  { name: "Sponsor 1", logo: "" },
+  { name: "Sponsor 2", logo: "" },
+  { name: "Sponsor 3", logo: "" },
+]
+
+const rules = [
+  "Tüm katılımcılara, organizatörlere ve konuşmacılara karşı saygılı ve nazik davranılmalıdır.",
+  "Oturumlara ve etkinliklere zamanında katılım sağlanmalıdır. Gecikmeler oturum akışını olumsuz etkiler.",
+  "Etkinlik süresince resmi kıyafet (takım elbise, gömlek vb.) giyilmesi zorunludur.",
+  "Oturumlar sırasında telefonlar sessiz moda alınmalı, sadece not alma amaçlı kullanılmalıdır.",
+  "Meclis prosedürlerine ve oylama kurallarına uyulmalıdır. Söz almak için belirtilen usullere uygun hareket edilmelidir.",
+  "Oturum içerikleri ve tartışmalar izinsiz paylaşılmamalıdır."
+]
+
+const faqs = [
+  {
+    q: "Kimler katılabilir?",
+    a: "Lise öğrencileri başvuru yapabilir. Okul idareleri aracılığıyla veya bireysel başvurular kabul edilmektedir.",
+  },
+  {
+    q: "Kıyafet zorunluluğu nedir?",
+    a: "Tüm delegeler ve katılımcılar resmi kıyafet (takım elbise veya blazer) giymek zorundadır.",
+  },
+  {
+    q: "Okul dışı başvuru kabul ediliyor mu?",
+    a: "Evet, bireysel başvurular da değerlendirilmektedir. Başvuru formunu doldurarak katılabilirsiniz.",
+  },
+  {
+    q: "Delegeler nasıl atanır?",
+    a: "Başvurular değerlendirildikten sonra delegeler komisyonlara atanır ve bilgilendirilir.",
+  },
+]
+
+---
+
+<Layout>
+  <div class="min-h-screen bg-white">
+    {/* Hero Section */}
+    <section class="bg-gradient-to-b from-green-50 to-white pt-20 pb-24">
+      <div class="container mx-auto px-4 text-center">
+        <div class="mb-12 flex justify-center">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/tr/3/31/Build_of_the_Turkish_Parliament_%28Türkiye_Büyük_Millet_Meclisi%29.svg"
+            alt="TBMM Logo"
+            class="h-48 w-auto"
+            style="filter: brightness(0) saturate(100%) invert(49%) sepia(42%) saturate(748%) hue-rotate(98deg) brightness(93%) contrast(89%)"
+          />
+        </div>
+
+        <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-4 text-balance">
+          Nevzat Ayaz Anadolu Lisesi
+          <br />
+          <span class="text-primary">Meclis Simülasyonu</span>
+        </h1>
+
+        <p class="text-2xl font-bold text-gray-900 mb-12">24-25 Ocak 2026</p>
+
+        {/* Stats */}
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto mb-8">
+          {stats.map((stat) => (
+            <Card
+
+              class="border border-primary/20 bg-white/80 backdrop-blur hover:border-primary transition-colors"
+            >
+              <CardContent class="py-4 text-center">
+                <stat.icon class="h-6 w-6 text-primary mx-auto mb-2" />
+                <div class="text-2xl font-bold text-gray-900 mb-1">{stat.value}</div>
+                <div class="text-xs text-muted-foreground">{stat.label}</div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Registration CTA */}
+    <section id="basvuru" class="py-20 bg-gradient-to-br from-primary/5 to-primary/10">
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">Hemen Kayıt Ol!</h2>
+          <p class="text-lg text-gray-700 mb-8">
+            Nevzat Ayaz Anadolu Lisesi Meclis Simülasyonu'na katılmak için başvurunuzu yapın.
+            Demokratik katılımı deneyimleyin!
+          </p>
+          <Button size="lg" href="/kayit-ol" class="bg-primary hover:bg-primary/90 text-lg px-12 py-6">
+            Kayıt Formu
+          </Button>
+        </div>
+      </div>
+    </section>
+
+    {/* Timeline */}
+    <section id="program" class="py-20 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-16 text-gray-900">Etkinlik Takvimi</h2>
+
+        <div class="max-w-4xl mx-auto">
+          {isTimelineAnnounced ? (
+            <Card class="border-2 border-primary/30">
+              <CardContent class="p-6">
+                <div class="grid md:grid-cols-2 gap-8">
+                  {/* Day 1 */}
+                  <div>
+                    <h3 class="text-xl font-bold text-primary mb-4 pb-2 border-b-2 border-primary">
+                      1. Gün - 24 Ocak 2026
+                    </h3>
+                    <div class="space-y-3">
+                      {timeline.day1.map((event) => (
+                        <div class="flex justify-between items-start gap-4">
+                          <span class="text-sm font-medium text-gray-900">{event.title}</span>
+                          <span class="text-sm text-muted-foreground whitespace-nowrap">{event.time}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Day 2 */}
+                  <div>
+                    <h3 class="text-xl font-bold text-primary mb-4 pb-2 border-b-2 border-primary">
+                      2. Gün - 25 Ocak 2026
+                    </h3>
+                    <div class="space-y-3">
+                      {timeline.day2.map((event) => (
+                        <div class="flex justify-between items-start gap-4">
+                          <span class="text-sm font-medium text-gray-900">{event.title}</span>
+                          <span class="text-sm text-muted-foreground whitespace-nowrap">{event.time}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          ) : (
+            <Card class="border-2 border-primary/30">
+              <CardContent class="p-12 text-center">
+                <div class="max-w-md mx-auto">
+                  <div class="h-16 w-16 rounded-full bg-primary/10 mx-auto mb-4 flex items-center justify-center">
+                    <BuildingOfficeIcon class="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 class="text-xl font-bold text-gray-900 mb-3">Etkinlik Planı Yakında Açıklanacak</h3>
+                  <p class="text-gray-600 text-sm">
+                    Detaylı etkinlik programı ve oturum saatleri çok yakında bu alanda paylaşılacaktır.
+                    Güncellemeler için sayfayı takip etmeye devam edin.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          )}
+        </div>
+      </div>
+    </section>
+
+    {/* Committees */}
+    <section id="komisyonlar" class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-16 text-gray-900">Komisyonlar</h2>
+
+        <div class="max-w-5xl mx-auto">
+          <Card class="border-2 border-primary/30">
+            <CardContent class="p-8">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {committeesList.map((committee) => (
+                  <a href={`/komisyon/${committee.id}`}>
+                    <div class="flex items-center gap-4 p-4 rounded-lg border border-primary/20 bg-gradient-to-r from-green-50/50 to-white hover:border-primary hover:shadow-md transition-all group cursor-pointer">
+                      <div class="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
+                        <committee.icon class="h-6 w-6 text-primary" />
+                      </div>
+                      <div class="flex-1 min-w-0">
+                        <h3 class="font-bold text-gray-900 mb-1 text-sm leading-tight">{committee.name}</h3>
+                        <div class="flex items-center gap-1.5 text-xs text-muted-foreground">
+                          <UsersIcon class="h-3.5 w-3.5" />
+                          <span>{committee.delegates} Delege</span>
+                        </div>
+                      </div>
+                      <ChevronRightIcon class="h-5 w-5 text-primary flex-shrink-0 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </section>
+
+    {/* Team */}
+    <section id="ekip" class="py-20 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-16 text-gray-900">Organizasyon Ekibi</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          {team.map((member) => (
+            <Card class="border-2 border-primary/30 bg-white">
+              <CardContent class="pt-6 text-center">
+                {member.photo ? (
+                  <img
+                    src={member.photo}
+                    alt={member.name}
+                    class="h-24 w-24 rounded-full object-cover mx-auto mb-4"
+                  />
+                ) : (
+                  <div class="h-24 w-24 rounded-full bg-primary/10 mx-auto mb-4 flex items-center justify-center">
+                    <UsersIcon class="h-12 w-12 text-primary" />
+                  </div>
+                )}
+                <h3 class="text-xl font-semibold text-gray-900 mb-1">{member.name}</h3>
+                <p class="text-sm font-medium text-primary">{member.role}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Sponsors */}
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-16 text-gray-900">Sponsorlar</h2>
+
+        <div class="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
+          {sponsors.map((sponsor) => (
+            <div class="flex items-center justify-center p-4 w-40">
+              {sponsor.logo ? (
+                <img
+                  src={sponsor.logo}
+                  alt={sponsor.name}
+                  class="max-w-full h-20 object-contain grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100"
+                />
+              ) : (
+                <div class="text-center opacity-40">
+                  <BuildingOfficeIcon class="h-16 w-16 text-gray-400 mx-auto mb-1" />
+                  <p class="text-xs text-gray-400">{sponsor.name}</p>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Rules */}
+    <section id="kurallar" class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12 text-gray-900">Kurallar</h2>
+
+        <div class="max-w-5xl mx-auto">
+          <div class="grid md:grid-cols-2 gap-6">
+            {/* Etkinlik Kuralları */}
+            <Card class="border border-primary/20">
+              <CardContent class="pt-6">
+                <h3 class="text-lg font-bold text-gray-900 mb-4">Etkinlik Kuralları</h3>
+                <ul class="space-y-2.5">
+                  {rules.map((rule, index) => (
+                    <li class="flex gap-3 items-start">
+                      <div class="h-5 w-5 rounded-full bg-primary flex items-center justify-center text-white text-xs font-bold flex-shrink-0 mt-0.5">
+                        {index + 1}
+                      </div>
+                      <p class="text-gray-700 text-sm leading-relaxed">{rule}</p>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* Davranış Kuralları */}
+            <Card class="border border-primary/20">
+              <CardContent class="pt-6">
+                <h3 class="text-lg font-bold text-gray-900 mb-4">Davranış Kuralları</h3>
+                <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                  Bu etkinlikte herkesin kendini güvende ve rahat hissetmesi esastır. Taciz ve istismara hiçbir şekilde
+                  izin verilmez. Detaylı kurallar için aşağıdaki butona tıklayın.
+                </p>
+                <ConductRulesDialog />
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* FAQ */}
+    <section id="sss" class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12 text-gray-900">Sıkça Sorulan Sorular</h2>
+
+        <div class="max-w-3xl mx-auto">
+          <div class="space-y-3">
+            {faqs.map((faq) => (
+              <AccordionItem name="sss" title={faq.q} class="border border-gray-200 rounded-lg px-5 bg-gray-50/50 hover:bg-gray-50 transition-colors">
+                {faq.a}
+              </AccordionItem>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <ContactForm />
+
+    <LocationSection />
+
+    <Footer />
+  </div>
+</Layout>
