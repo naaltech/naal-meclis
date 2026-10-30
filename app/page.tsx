@@ -1,22 +1,23 @@
 import Link from "next/link"
-import { Users, Building, School, MapPin, ChevronRight } from "lucide-react"
+import { UsersIcon, BuildingOfficeIcon, AcademicCapIcon, ChevronRightIcon } from "@heroicons/react/24/outline"
 import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+import { buttonVariants } from "@/components/ui/button"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { LocationSection } from "@/components/location-section"
 import { ContactForm } from "@/components/contact-form"
 import { ConductRulesDialog } from "@/components/conduct-rules-dialog"
 import { Footer } from "@/components/footer"
 import { committeesList } from "@/lib/committees"
+import { cn } from "@/lib/utils"
 
 export default function HomePage() {
   // Etkinlik planı durumu - true: Açıklandı, false: Yakında açıklanacak
   const isTimelineAnnounced = false
 
   const stats = [
-    { label: "Toplam Katılımcı", value: "150", icon: Users },
-    { label: "Komisyon Sayısı", value: "7", icon: Building },
-    { label: "Katılan Okul", value: "12", icon: School },
+    { label: "Toplam Katılımcı", value: "150", icon: UsersIcon },
+    { label: "Komisyon Sayısı", value: "7", icon: BuildingOfficeIcon },
+    { label: "Katılan Okul", value: "12", icon: AcademicCapIcon },
   ]
 
   const timeline = {
@@ -130,9 +131,9 @@ export default function HomePage() {
               Nevzat Ayaz Anadolu Lisesi Meclis Simülasyonu'na katılmak için başvurunuzu yapın.
               Demokratik katılımı deneyimleyin!
             </p>
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-12 py-6" asChild>
-              <Link href="/kayit-ol">Kayıt Formu</Link>
-            </Button>
+            <Link href="/kayit-ol" className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-lg px-12 py-6")}>
+              Kayıt Formu
+            </Link>
           </div>
         </div>
       </section>
@@ -184,7 +185,7 @@ export default function HomePage() {
                 <CardContent className="p-12 text-center">
                   <div className="max-w-md mx-auto">
                     <div className="h-16 w-16 rounded-full bg-primary/10 mx-auto mb-4 flex items-center justify-center">
-                      <Building className="h-8 w-8 text-primary" />
+                      <BuildingOfficeIcon className="h-8 w-8 text-primary" />
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-3">Etkinlik Planı Yakında Açıklanacak</h3>
                     <p className="text-gray-600 text-sm">
@@ -217,11 +218,11 @@ export default function HomePage() {
                         <div className="flex-1 min-w-0">
                           <h3 className="font-bold text-gray-900 mb-1 text-sm leading-tight">{committee.name}</h3>
                           <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                            <Users className="h-3.5 w-3.5" />
+                            <UsersIcon className="h-3.5 w-3.5" />
                             <span>{committee.delegates} Delege</span>
                           </div>
                         </div>
-                        <ChevronRight className="h-5 w-5 text-primary flex-shrink-0 group-hover:translate-x-1 transition-transform" />
+                        <ChevronRightIcon className="h-5 w-5 text-primary flex-shrink-0 group-hover:translate-x-1 transition-transform" />
                       </div>
                     </Link>
                   ))}
@@ -249,7 +250,7 @@ export default function HomePage() {
                     />
                   ) : (
                     <div className="h-24 w-24 rounded-full bg-primary/10 mx-auto mb-4 flex items-center justify-center">
-                      <Users className="h-12 w-12 text-primary" />
+                      <UsersIcon className="h-12 w-12 text-primary" />
                     </div>
                   )}
                   <h3 className="text-xl font-semibold text-gray-900 mb-1">{member.name}</h3>
@@ -277,7 +278,7 @@ export default function HomePage() {
                   />
                 ) : (
                   <div className="text-center opacity-40">
-                    <Building className="h-16 w-16 text-gray-400 mx-auto mb-1" />
+                    <BuildingOfficeIcon className="h-16 w-16 text-gray-400 mx-auto mb-1" />
                     <p className="text-xs text-gray-400">{sponsor.name}</p>
                   </div>
                 )}
@@ -333,7 +334,7 @@ export default function HomePage() {
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Sıkça Sorulan Sorular</h2>
 
           <div className="max-w-3xl mx-auto">
-            <Accordion type="single" collapsible className="space-y-3">
+            <Accordion className="space-y-3">
               {faqs.map((faq, index) => (
                 <AccordionItem
                   key={index}

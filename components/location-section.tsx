@@ -1,13 +1,13 @@
 "use client"
 
 import dynamic from "next/dynamic"
-import { MapPin } from "lucide-react"
+import { MapPinIcon } from "@heroicons/react/24/outline"
 
 const LocationMap = dynamic(() => import("@/components/location-map").then((mod) => mod.LocationMap), {
   ssr: false,
   loading: () => (
     <div className="h-full w-full bg-gray-200 flex items-center justify-center rounded-t-lg" style={{ minHeight: "400px" }}>
-      <MapPin className="h-16 w-16 text-primary animate-pulse" />
+      <MapPinIcon className="h-16 w-16 text-primary animate-pulse" />
     </div>
   ),
 })
@@ -28,7 +28,7 @@ export function LocationSection() {
                 {/* Left: Address */}
                 <div>
                   <h3 className="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
-                    <MapPin className="h-4 w-4 text-primary" />
+                    <MapPinIcon className="h-4 w-4 text-primary" />
                     Adres
                   </h3>
                   <div className="space-y-1">

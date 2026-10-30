@@ -22,7 +22,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 - React 19
 - TypeScript
 - Tailwind CSS
-- shadcn/ui
+- Heroicons
 
 ## Project Structure
 

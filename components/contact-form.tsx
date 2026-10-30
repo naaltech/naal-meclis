@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Mail, Phone, MapPin } from "lucide-react"
+import { EnvelopeIcon, PhoneIcon, MapPinIcon } from "@heroicons/react/24/outline"
 
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -56,7 +56,7 @@ export function ContactForm() {
                 {/* Email */}
                 <div className="flex items-start gap-4">
                   <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <Mail className="h-5 w-5 text-primary" />
+                    <EnvelopeIcon className="h-5 w-5 text-primary" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">E-posta</h4>
@@ -67,7 +67,7 @@ export function ContactForm() {
                 {/* Phone */}
                 <div className="flex items-start gap-4">
                   <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <Phone className="h-5 w-5 text-primary" />
+                    <PhoneIcon className="h-5 w-5 text-primary" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Telefon</h4>
@@ -78,7 +78,7 @@ export function ContactForm() {
                 {/* Address */}
                 <div className="flex items-start gap-4">
                   <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <MapPin className="h-5 w-5 text-primary" />
+                    <MapPinIcon className="h-5 w-5 text-primary" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Adres</h4>

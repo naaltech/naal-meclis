@@ -2,24 +2,20 @@
 
 import { useState } from "react"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { Button } from "@/components/ui/button"
-import { ScrollArea } from "@/components/ui/scroll-area"
-import { FileText } from "lucide-react"
+import { DocumentTextIcon } from "@heroicons/react/24/outline"
 
 export function ConductRulesDialog() {
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="outline" className="w-full border-primary/30 hover:bg-primary/5">
-          <FileText className="h-4 w-4 mr-2" />
-          Davranış Kurallarını Oku
-        </Button>
+      <DialogTrigger variant="outline" className="w-full border-primary/30 hover:bg-primary/5">
+        <DocumentTextIcon className="h-4 w-4 mr-2" />
+        Davranış Kurallarını Oku
       </DialogTrigger>
       <DialogContent className="max-w-3xl max-h-[85vh]">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold">Etkinlik Davranış Kuralları</DialogTitle>
         </DialogHeader>
-        <ScrollArea className="h-[calc(85vh-120px)] pr-4">
+        <div tabIndex={0} className="h-[calc(85vh-120px)] overflow-y-auto pr-4 [scrollbar-width:thin]">
           <div className="space-y-6 text-sm leading-relaxed">
             <section>
               <h3 className="font-bold text-lg mb-3">KISACA</h3>
@@ -77,7 +73,7 @@ export function ConductRulesDialog() {
               </div>
             </section>
           </div>
-        </ScrollArea>
+        </div>
       </DialogContent>
     </Dialog>
   )

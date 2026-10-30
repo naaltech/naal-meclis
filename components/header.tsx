@@ -1,8 +1,8 @@
 "use client"
 
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Menu, X } from "lucide-react"
+import { buttonVariants } from "@/components/ui/button"
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline"
 import { useState } from "react"
 
 export function Header() {
@@ -37,9 +37,9 @@ export function Header() {
               {item.name}
             </Link>
           ))}
-          <Button variant="outline" asChild className="ml-2">
-            <Link href="/kayit-ol">Başvuru Yap</Link>
-          </Button>
+          <Link href="/kayit-ol" className={buttonVariants({ variant: "outline", className: "ml-2" })}>
+            Başvuru Yap
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -48,7 +48,7 @@ export function Header() {
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
         >
-          {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {mobileMenuOpen ? <XMarkIcon className="h-6 w-6" /> : <Bars3Icon className="h-6 w-6" />}
         </button>
       </nav>
 
@@ -64,13 +64,15 @@ export function Header() {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {item.name}
-              </Link>
+            </Link>
             ))}
-            <Button variant="outline" className="w-full" asChild>
-              <Link href="/kayit-ol" onClick={() => setMobileMenuOpen(false)}>
-                Başvuru Yap
-              </Link>
-            </Button>
+            <Link
+              href="/kayit-ol"
+              className={buttonVariants({ variant: "outline", className: "w-full" })}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Başvuru Yap
+            </Link>
           </div>
         </div>
       )}

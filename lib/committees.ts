@@ -1,11 +1,19 @@
-import { Scale, GraduationCap, Globe, Home, Church, Coins, History } from "lucide-react"
+import {
+  AcademicCapIcon,
+  BanknotesIcon,
+  BuildingLibraryIcon,
+  ClockIcon,
+  GlobeAltIcon,
+  HomeIcon,
+  ScaleIcon,
+} from "@heroicons/react/24/outline"
 
 export const committees = {
   adalet: {
     id: "adalet",
     name: "Adalet Komisyonu",
     delegates: 20,
-    icon: Scale,
+    icon: ScaleIcon,
     about:
       "Türkiye'nin yargı sistemini ele alan, adalet ve hukuk reformlarını tartışan prestijli komisyon.",
     topics: [
@@ -20,7 +28,7 @@ export const committees = {
     id: "milli-egitim",
     name: "Milli Eğitim Komisyonu",
     delegates: 25,
-    icon: GraduationCap,
+    icon: AcademicCapIcon,
     about:
       "Milli Eğitim Komisyonu, Türkiye'nin eğitim sistemini, müfredat reformlarını ve eğitim politikalarını inceler. Delegeler, eğitimde fırsat eşitliği, dijital dönüşüm, öğretmen hakları ve mesleki eğitim gibi kritik konularda çözüm önerileri geliştirirler.",
     topics: [
@@ -35,7 +43,7 @@ export const committees = {
     id: "dis-isleri",
     name: "Dış İşleri Komisyonu",
     delegates: 20,
-    icon: Globe,
+    icon: GlobeAltIcon,
     about:
       "Dış İşleri Komisyonu, Türkiye'nin uluslararası ilişkilerini, diplomatik stratejilerini ve küresel politikadaki konumunu inceler. Delegeler, bölgesel güvenlik, uluslararası anlaşmalar ve dış politika öncelikleri konusunda çözüm önerileri geliştirirler.",
     topics: [
@@ -50,7 +58,7 @@ export const committees = {
     id: "ic-isleri",
     name: "İç İşleri Komisyonu",
     delegates: 22,
-    icon: Home,
+    icon: HomeIcon,
     about:
       "İç İşleri Komisyonu, Türkiye'nin iç güvenlik politikalarını, yerel yönetim yapısını ve kamu düzeni meselelerini inceler. Delegeler, güvenlik reformları, afet yönetimi ve vatandaşlık hakları konusunda çözüm önerileri geliştirirler.",
     topics: [
@@ -65,7 +73,7 @@ export const committees = {
     id: "din-isleri",
     name: "Din İşleri Komisyonu",
     delegates: 18,
-    icon: Church,
+    icon: BuildingLibraryIcon,
     about:
       "Din İşleri Komisyonu, Türkiye'de din ve vicdan özgürlüğü, Diyanet İşleri Başkanlığı'nın yapısı ve dini eğitim konularını inceler. Delegeler, laiklik ilkesi çerçevesinde din hizmetleri ve toplumsal uyum konusunda çözüm önerileri geliştirirler.",
     topics: [
@@ -80,7 +88,7 @@ export const committees = {
     id: "hazine-maliye",
     name: "Hazine ve Maliye Komisyonu",
     delegates: 20,
-    icon: Coins,
+    icon: BanknotesIcon,
     about:
       "Hazine ve Maliye Komisyonu, Türkiye'nin ekonomi politikalarını, vergi sistemini, bütçe yönetimini ve mali düzenlemeleri inceler. Delegeler, ekonomik kalkınma, enflasyon mücadelesi ve mali disiplin konusunda çözüm önerileri geliştirirler.",
     topics: [
@@ -95,7 +103,7 @@ export const committees = {
     id: "turk-dunyasi",
     name: "Türk Dünyasında Siyaset Tarihi Komisyonu",
     delegates: 15,
-    icon: History,
+    icon: ClockIcon,
     about:
       "Türk Dünyasında Siyaset Tarihi Komisyonu, Türk tarihinin kritik dönüm noktalarını simüle eder. Delegeler, tarihsel figürlerin rolünü üstlenerek önemli kararları yeniden tartışır ve alternatif tarih senaryolarını keşfederler.",
     alert: "Bu komisyon, diğer komisyonlardan farklı olarak tarihi bir simülasyon formatında çalışır.",

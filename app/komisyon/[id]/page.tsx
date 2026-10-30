@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { ArrowLeft, Building, Users, AlertTriangle } from "lucide-react"
+import { ArrowLeftIcon, UsersIcon, ExclamationTriangleIcon } from "@heroicons/react/24/outline"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Footer } from "@/components/footer"
@@ -57,7 +57,7 @@ export default async function CommitteePage({ params }: { params: Promise<{ id: 
       <div className="container mx-auto px-4 py-12">
         <Link href="/">
           <Button variant="ghost" className="mb-8 -ml-4">
-            <ArrowLeft className="h-4 w-4 mr-2" />
+            <ArrowLeftIcon className="h-4 w-4 mr-2" />
             Ana Sayfaya Dön
           </Button>
         </Link>
@@ -67,7 +67,7 @@ export default async function CommitteePage({ params }: { params: Promise<{ id: 
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 text-balance">{committee.name}</h1>
             <div className="flex items-center justify-center gap-2 text-muted-foreground">
-              <Users className="h-5 w-5 text-primary" />
+              <UsersIcon className="h-5 w-5 text-primary" />
               <span className="text-lg">
                 Delege Sayısı: <strong className="text-gray-900">{committee.delegates}</strong>
               </span>
@@ -85,7 +85,7 @@ export default async function CommitteePage({ params }: { params: Promise<{ id: 
           {/* Warning alert if committee has one */}
           {committee.alert && (
             <Alert className="mb-8 border-amber-500 bg-amber-50">
-              <AlertTriangle className="h-5 w-5 text-amber-600" />
+              <ExclamationTriangleIcon className="h-5 w-5 text-amber-600" />
               <AlertDescription className="text-amber-900 font-medium ml-2">
                 {committee.alert}
               </AlertDescription>
